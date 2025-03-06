@@ -1,12 +1,21 @@
 "A particular intergalactic location available for booking"
 type Listing {
   id: ID!
+  "The listing's title"
   title: String!
-  numOfBeds: Int
-  costPerNight: Float
+  "The listing's description"
+  description: String!
+  "The number of beds available"
+  numOfBeds: Int!
+  "The cost per night"
+  costPerNight: Float!
+  "Indicates whether listing is closed for bookings (on hiatus)"
   closedForBookings: Boolean
 }
 
 type Query {
   featuredListings: [Listing!]!
+
+  "Returns the details about this listing"
+  listing(id: ID!): Listing
 }
